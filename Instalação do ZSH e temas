@@ -1,0 +1,115 @@
+*Instalação*
+
+Sudo apt install zsh
+
+*Saber onde foi instalado*
+cat /etc/shells
+----------------------------------------------------------------------------------------------->
+
+*Trocar do sh para zsh*
+
+Digite chsh
+
+Digite o caminho do zsh (/usr/bin/zsh)
+
+Faça isso com root também!
+Saia da seção e volte.
+Digite ps ou echo $SHELL para saber se está usando sh ou zsh
+----------------------------------------------------------------------------------------------->
+
+*Instalar temas*
+
+Fontes
+sudo apt install powerline fonts-powerline
+
+Digite os comandos para dependências (se não tiver instalado)
+sudo apt install wget 
+sudo apt install git
+
+sudo apt install powerline fonts-powerline
+----------------------------------------------------------------------------------------------->
+
+*Instalação de Fontes Powerline*
+
+sudo mkdir /usr/local/bin/powerline
+
+sudo git clone https://github.com/powerline/powerline.git /usr/local/bin/powerline/
+
+sudo wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf -O /usr/share/fonts/PowerlineSymbols.otf
+
+sudo wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf -O /etc/fonts/conf.d/10-powerline-symbols.conf
+
+sudo echo '. /usr/local/bin/powerline/powerline/bindings/bash/powerline.sh' >> ~/.bashrc
+----------------------------------------------------------------------------------------------->
+
+*Como instalar o Oh My ZSH Linux*
+
+Utilizando o wget e git, baixe o script de instalação do repositório Git e executá-lo em nossa máquina.  Para isso, execute o seguinte comando no seu terminal:
+
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+Veja que com a instalação do Oh My ZSH e ativação do ZSH, o prompt do terminal já mudou.
+----------------------------------------------------------------------------------------------->
+
+*Instalando temas no ZSH com o Oh My ZSH*
+
+Para configurar o tema, basta alterar o arquivo .zshrc
+
+nano ~/.zshrc
+
+Localize a variável ZSH_THEME, comente e adicione o tema escolhido.
+
+Exemplo:
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
+
+Depois é só recarregar o shell ou executar o comando abaixo:
+
+source ~/.zshrc
+
+E pronto! o tema Agnoster está instalado no ZSH !
+----------------------------------------------------------------------------------------------->
+
+Instalando o tema Powerlevel10k no ZSH com o Oh My ZSH
+
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+Altere o arquivo de configuração novamente comentando o tema enterior e adicionando o seguinte:
+
+ZSH_THEME=”powerlevel10k/powerlevel10k”
+
+Depois é só recarregar o shell ou executar o comando abaixo:
+
+source ~/.zshrc
+
+Após procedimento acima o tema começa a ser configurado e basta responder aos prompts conforme solicitado.
+
+Você pode configurar o powerlevel10k usando o comando:
+
+p10k configure
+----------------------------------------------------------------------------------------------->
+
+*Plugin zsh-autosuggestions*
+
+Outro plugin extremamente útil e necessário é o  zsh-autosuggestions. Ele sugere comandos baseados nos comandos que já foram digitados anteriormente. Ele funciona como uma ferramenta de auto completar o que está sendo digitado, poupando muito tempo.
+
+Para instalar o plugin, digite o seguinte comando em seu terminal:
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+Usando um editor de texto, por exemplo o nano ou o vi, abra o arquivo de configuração com o comando:
+
+nano ~/.zshrc
+
+Localize a linha que tem “plugins=”. Já deve existir entre os parênteses outros plugins, vamos acrescentar o zsh-autosuggestions dando espaço entre os plugins, conforme abaixo:
+
+plugins=(git zsh-autosuggestions)
+
+Salve e feche o arquivo. Feche a abra novamente o terminal para carregar as alterações ou execute o comando:
+
+source ~/.zshrc
+
+
+
+
